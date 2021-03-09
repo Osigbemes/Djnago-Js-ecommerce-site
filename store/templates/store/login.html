@@ -1,0 +1,36 @@
+{% extends 'store/main.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+{% block content %}
+
+<div class="content-section">
+{% if messages %}
+            <ul>
+                {% for message in messages %}
+                <p id="messages">{{ message }}</p>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    <div class="col-lg-12">
+        <div class="box-element" id="form-wrapper">
+            <form method="post" >
+                {% csrf_token %}
+                <center><h3><b>Login here...</b></h3></center>
+
+
+                    <div class="form-field">
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Enjoy shopping!</legend>
+                            {{form.as_p}}
+                        </fieldset>
+                        <input  class="btn btn-success btn-block" type="submit" name="Login">
+                    </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
