@@ -130,3 +130,6 @@ MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') # where your images will be uploaded. this tells django what to do
 CRISPY_TEMPLATE_PACK="bootstrap4"
+
+import django_heroku
+django_heroku.settings(locals())
