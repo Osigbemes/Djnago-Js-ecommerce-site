@@ -25,7 +25,7 @@ SECRET_KEY = 'uwai5+#+sq*66ev#2h+i4=ks=2^nt%!_k9v61(l^^63@986cm2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -122,7 +122,7 @@ USE_TZ = True
 import os
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join (BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
@@ -132,4 +132,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') # where your images will be
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
 import django_heroku
+import dj_database_url
 django_heroku.settings(locals())
