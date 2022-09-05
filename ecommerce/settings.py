@@ -26,11 +26,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# env = environ.Env()
-# reading .env file
-# environ.Env.read_env()
-SECRET_KEY = 'uwai5+#+sq*66ev#2h+i4=ks=2^nt%!_k9v61(l^^63@986cm2'
+# SECRET_KEY = 'uwai5+#+sq*66ev#2h+i4=ks=2^nt%!_k9v61(l^^63@986cm2'
 # SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # CLOUDINARY_STORAGE = {
 #     'CLOUD_NAME': os.getenv("CLOUD_NAME"),
