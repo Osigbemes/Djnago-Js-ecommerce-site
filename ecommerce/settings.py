@@ -10,8 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-import environ
+# import environ
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 from pathlib import Path
 
@@ -23,23 +26,23 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-env = environ.Env()
+# env = environ.Env()
 # reading .env file
-environ.Env.read_env()
-SECRET_KEY = 'uwai5+#+sq*66ev#2h+i4=ks=2^nt%!_k9v61(l^^63@986cm2'
-# SECRET_KEY = env("SECRET_KEY")
-
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': env("CLOUD_NAME"),
-#     'API_KEY': env("API_KEY"),
-#     'API_SECRET': env("API_SECRET")
-# }
+# environ.Env.read_env()
+# SECRET_KEY = 'uwai5+#+sq*66ev#2h+i4=ks=2^nt%!_k9v61(l^^63@986cm2'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'def3mblva',
-    'API_KEY': '154935691196737',
-    'API_SECRET': '_Ed_WGaErLaNA3ZEbuNptwZmdZQ'
+    'CLOUD_NAME': os.getenv("CLOUD_NAME"),
+    'API_KEY': os.getenv("API_KEY"),
+    'API_SECRET': os.getenv("API_SECRET")
 }
+
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'def3mblva',
+#     'API_KEY': '154935691196737',
+#     'API_SECRET': '_Ed_WGaErLaNA3ZEbuNptwZmdZQ'
+# }
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -161,9 +164,4 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 import django_heroku
 import dj_database_url
 django_heroku.settings(locals())
-
-
-env = environ.Env()
-# reading .env file
-environ.Env.read_env()
 
