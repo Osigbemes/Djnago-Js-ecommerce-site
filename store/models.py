@@ -19,13 +19,13 @@ class Product(models.Model):
 	def __str__(self):
 		return self.name
 
-	@property # lets you to access this as an attribute instead as a method. (IN YOUR STORE.HTML, IT ACCESSES THIS AS AN ATTRIBUTE)
-	def imageURL(self):
-		try:
-			url = self.image.url
-		except:
-			url = ''
-		return url
+	# @property # lets you to access this as an attribute instead as a method. (IN YOUR STORE.HTML, IT ACCESSES THIS AS AN ATTRIBUTE)
+	# def imageURL(self):
+	# 	try:
+	# 		url = self.image.url
+	# 	except:
+	# 		url = ''
+	# 	return url
 
 
 class Order(models.Model):
