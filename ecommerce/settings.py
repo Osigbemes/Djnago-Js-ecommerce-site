@@ -29,8 +29,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # env = environ.Env()
 # reading .env file
 # environ.Env.read_env()
-
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = 'uwai5+#+sq*66ev#2h+i4=ks=2^nt%!_k9v61(l^^63@986cm2'
+# SECRET_KEY = os.getenv("SECRET_KEY")
 
 # CLOUDINARY_STORAGE = {
 #     'CLOUD_NAME': os.getenv("CLOUD_NAME"),
@@ -38,12 +38,12 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 #     'API_SECRET': os.getenv("API_SECRET")
 # }
 
-CLOUDINARY_URL=os.getenv("CLOUDINARY_URL")
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': 'def3mblva',
-#     'API_KEY': '154935691196737',
-#     'API_SECRET': '_Ed_WGaErLaNA3ZEbuNptwZmdZQ'
-# }
+# CLOUDINARY_URL=os.getenv("CLOUDINARY_URL")
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'def3mblva',
+    'API_KEY': '154935691196737',
+    'API_SECRET': '_Ed_WGaErLaNA3ZEbuNptwZmdZQ'
+}
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
