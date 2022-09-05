@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import os
+import environ
+
 
 from pathlib import Path
 
@@ -20,7 +23,23 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'uwai5+#+sq*66ev#2h+i4=ks=2^nt%!_k9v61(l^^63@986cm2'
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+# SECRET_KEY = 'uwai5+#+sq*66ev#2h+i4=ks=2^nt%!_k9v61(l^^63@986cm2'
+SECRET_KEY = env("SECRET_KEY")
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env("CLOUD_NAME"),
+    'API_KEY': env("API_KEY"),
+    'API_SECRET': env("API_SECRET")
+}
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'def3mblva',
+    'API_KEY': '154935691196737',
+    'API_SECRET': '_Ed_WGaErLaNA3ZEbuNptwZmdZQ'
+}
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,8 +57,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'store',
-    'crispy_forms'
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +150,8 @@ STATIC_ROOT = os.path.join (BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
-MEDIA_URL = '/images/'
+MEDIA_URL = '/images/' # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -139,3 +161,9 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 import django_heroku
 import dj_database_url
 django_heroku.settings(locals())
+
+
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+
